@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
+<!-- InstanceBegin template="/Templates/cutteren.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-H38ZKMSYQ9"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-H38ZKMSYQ9');
+	</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <link rel="shortcut icon" href= "http://numerocutter.com.ar/favicon.ico"/>
+    <!-- InstanceBeginEditable name="keywords" -->
+    <meta name="Keywords"
+          content="cutter sanborn, table, tables, cutter number,MARC,biblioteca, library, cutter, sanborn, cutter-sanborn three figure author table"/>
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="description" -->
+    <meta name="Description"
+          content="Site to get cutter number (Cutter-Sanborn three figure author table, Swanson-Swift Revision). C&oacute;rdoba (ARGENTINA). Tools to calculate Cutter-Sanborn numbers."/>
+    <!-- InstanceEndEditable -->
+    <!-- InstanceBeginEditable name="Titulo" -->
+    <title>Cutter-Sanborn number</title>
+    <!-- InstanceEndEditable -->
+
+    <!-- CSS for screen and print formatting -->
+    <link rel="stylesheet" href="http://www.numerocutter.com.ar/main.css"/>
+    <!-- CSS for menu formatting -->
+    <link rel="stylesheet" href="http://www.numerocutter.com.ar/menu.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/JavaScript">
+        function sacaAcentos(nombre) {
+            // pre: ingresa un string
+            //post: devuelve la string sin acentos ni dieresis
+            nombre = nombre.replace("Á", "A");
+            nombre = nombre.replace("É", "E");
+            nombre = nombre.replace("Í", "I");
+            nombre = nombre.replace("Ó", "O");
+            nombre = nombre.replace("Ú", "U");
+            nombre = nombre.replace("Ü", "U");
+            nombre = nombre.replace("á", "A");
+            nombre = nombre.replace("é", "E");
+            nombre = nombre.replace("í", "I");
+            nombre = nombre.replace("ó", "O");
+            nombre = nombre.replace("ú", "U");
+            nombre = nombre.replace("ä", "A");
+            nombre = nombre.replace("Ä", "A");
+            nombre = nombre.replace("ë", "E");
+            nombre = nombre.replace("Ë", "E");
+            nombre = nombre.replace("ï", "I");
+            nombre = nombre.replace("Ï", "I");
+            nombre = nombre.replace("ö", "O");
+            nombre = nombre.replace("Ö", "O");
+            nombre = nombre.replace("ü", "U");
+            nombre = nombre.replace("Ü", "U");
+            nombre = nombre.replace("Ç", "C");
+            nombre = nombre.replace("à", "A");
+            nombre = nombre.replace("À", "A");
+            nombre = nombre.replace("è", "E");
+            nombre = nombre.replace("È", "E");
+            nombre = nombre.replace("ì", "I");
+            nombre = nombre.replace("Ì", "I");
+            nombre = nombre.replace("ò", "O");
+            nombre = nombre.replace("Ò", "O");
+            nombre = nombre.replace("ù", "U");
+            nombre = nombre.replace("Ù", "U");
+            nombre = nombre.replace("â", "A");
+            nombre = nombre.replace("Â", "A");
+            nombre = nombre.replace("ê", "E");
+            nombre = nombre.replace("Ê", "E");
+            nombre = nombre.replace("î", "I");
+            nombre = nombre.replace("Î", "I");
+            nombre = nombre.replace("ô", "O");
+            nombre = nombre.replace("Ô", "O");
+            nombre = nombre.replace("û", "U");
+            nombre = nombre.replace("Û", "U");
+            nombre = nombre.replace("ñ", "NZ");
+            return nombre;
+        }
+
+        var table;
+
+        $(document).ready(function () {
+            $(" .numero").hide();
+
+            $.ajax({
+                url: "tablacutter-js.txt",
+                success: function (result) {
+                    table = result;
+                }
+            });
+
+            $("form").submit(function () {
+                submitCut();
+                return false;
+            });
+        });
+
+        function submitCut() {
+            cutter = cutterFunc();
+            $("#numero_tit").show();
+            $("#numero_cut").text(cutter).show();
+        }
+
+        function cutterFunc() {
+            var inputtxt = $('input[name="cutText"]').val();
+            var original = inputtxt;
+            tblc = table.split("\n");
+            cutter = ''; //  devuelve el valor de la tabla cutter que corresponde al input
+
+            inputtxt = sacaAcentos(inputtxt);
+            inputtxt = inputtxt.replace(" ", "");
+            inputtxt = inputtxt.trim();
+            inputtxt = inputtxt.toLowerCase();
+            for (j = 0; j < (tblc.length - 1); j++) {
+                if (inputtxt >= tblc[j].slice(4) && inputtxt < tblc[j + 1].slice(4)) {
+                    if (inputtxt[0] == 'a' || inputtxt[0] == 'e' || inputtxt[0] == 'i' || inputtxt[0] == 'o' || inputtxt[0] == 'u') {
+                        cutter = inputtxt.slice(0, 2).toUpperCase() + tblc[j].slice(0, 3);
+                    } else if (inputtxt[0] == 's' && inputtxt[1] != 'c') {
+                        cutter = inputtxt.slice(0, 2).toUpperCase() + tblc[j].slice(0, 3);
+                    } else if (inputtxt[0] == 's' && inputtxt[1] == 'c') {
+                        cutter = inputtxt.slice(0, 3).toUpperCase() + tblc[j].slice(0, 3);
+                    } else {
+                        cutter = inputtxt[0].toUpperCase() + tblc[j].slice(0, 3);
+                    }
+                    cutter = cutter.replace("0", "");
+                    cutter = cutter.replace("0", "");
+                    break;
+                }
+            }
+            return cutter;
+        }
+    </script>
+
+
+</head>
+
+<body>
+<div style="text-align:center;">
+    <div class="container">
+
+        <!-- image header -->
+        <div class="header">
+            <a href= "http://cutternumber.com.ar/index.html"><img src= "http://numerocutter.com.ar/images/spacer.gif" alt="Cutter number" width="518" height="60" border="0"
+                                         style="float:left;"/></a>
+        </div>
+
+        <!-- image header for print -->
+        <img src= "http://numerocutter.com.ar/images/header.jpg" class="printhead" alt="-"/>
+
+        <!-- spacer for Javascript drop-down menu -->
+        <div class="menuen">
+            &nbsp;<a href="http://www.numerocutter.com.ar" class="brownlink">Cutter Samborn </a> (in spanish)
+        </div>
+
+
+        <table class="tablesquares" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" width="90%">
+            <tr>
+                <td class="leftcolumn" id="blue" rowspan="100" width="25%">
+
+
+                    <!-- InstanceBeginEditable name="BarraIzquierda" --><h2>Cutter tables</h2>
+                    <p align="left">
+                        Get Cutter Sanborn number (Three-Figure Author Table, Swanson-Swift Revision).
+                    </p>
+                    <p align="left">
+                        You can find the three figure Cutter-Sanborn tables <a
+                            href="http://www.cutternumber.com.ar/tablascutter/cutterABC.html" class="whitelink">HERE</a>
+                    </p>
+                    <!-- Si va un menu con links, ponerlo dentro de sidemenu -->
+                    <!-- <div class="sidemenu">    </div> -->
+                    <!-- InstanceEndEditable --></td>
+
+                <td class="rightcolumn" id="white" width="75%">
+                    <!-- InstanceBeginEditable name="Contenido" -->
+
+
+                    <h2>Get three figure Cutter-Sanborn number</h2>
+
+                    <p>It works also with stresses, "ñ", "ü", etc. <br/>
+                        <br/>
+                    </p>
+
+
+                    <table>
+                        <tr>
+                            <td>Text:</td>
+                            <td>
+                                <form>
+                                    <input type="text" name="cutText"/>
+                                </form>
+                            </td>
+                            <td>
+                                <button type="button" onclick="submitCut()">Submit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="numero" id="numero_tit">Number: </span>
+                            </td>
+                            <td>
+                                <span class="numero" style="font-weight: bold" id="numero_cut"></span>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                    <!-- InstanceEndEditable --></td>
+            </tr>
+        </table>
+
+        <div class="footer">
+			If you have any questions or problems, please contact us at: <a href="mailto:contacto@numerocutter.com.ar">contacto@numerocutter.com.ar</a>
+            <!--<a href="http://www.numerocutter.com.ar/institucional/contacto.html">CONTACT</a>
+            <a href=""> | </a>
+            <a href="http://my.statcounter.com/project/standard/stats.php?project_id=2768112&amp;guest=1">See
+                statistics</a>-->
+
+            <!-- Start of StatCounter Code -->
+            <!--<script type="text/javascript">
+                var sc_project = 2768112;
+                var sc_invisible = 0;
+                var sc_partition = 28;
+                var sc_security = "36a42d55";
+            </script>-->
+
+            <!--<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script>
+            <noscript>
+                <div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img
+                        class="statcounter" src="http://c29.statcounter.com/2768112/0/36a42d55/0/" alt="blog counter"/></a>
+                </div>
+            </noscript>-->
+            <!-- End of StatCounter Code --><br>
+
+            &copy; 2022 ALT
+        </div>
+
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+
+
+
+</body>
+<!-- InstanceEnd --></html>
