@@ -11,18 +11,18 @@
 
 	  gtag('config', 'G-H38ZKMSYQ9');
 	</script>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="shortcut icon" href= "favicon.ico"/>
     <!-- InstanceBeginEditable name="keywords" -->
     <meta name="Keywords"
-          content="cutter sanborn, table, tables, cutter number,MARC,biblioteca, library, cutter, sanborn, cutter-sanborn three figure author table"/>
+          content="cutter sanborn, table, tabla, tablas, tables, cutter number, MARC, biblioteca, library, cutter, sanborn, cutter-sanborn three figure author table"/>
     <!-- InstanceEndEditable -->
     <!-- InstanceBeginEditable name="description" -->
     <meta name="Description"
-          content="Site to get cutter number (Cutter-Sanborn three figure author table, Swanson-Swift Revision). C&oacute;rdoba (ARGENTINA). Tools to calculate Cutter-Sanborn numbers."/>
+          content="Sitio para obtener el número Cutter Sanborn (Cutter-Sanborn three figure author table, Swanson-Swift Revision). Córdoba (ARGENTINA). Herramientas para calcular los números de tres dígitos de Cutter-Sanborn."/>
     <!-- InstanceEndEditable -->
     <!-- InstanceBeginEditable name="Titulo" -->
-    <title>Cutter-Sanborn number</title>
+    <title>Número de Cutter-Sanborn</title>
     <!-- InstanceEndEditable -->
 
     <!-- CSS for screen and print formatting -->
@@ -34,51 +34,8 @@
     <script type="text/JavaScript">
         function sacaAcentos(nombre) {
             // pre: ingresa un string
-            //post: devuelve la string sin acentos ni dieresis
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "C");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "NZ");
-            return nombre;
+            // post: devuelve la string sin acentos ni dieresis
+            return nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         }
 
         var table;
@@ -153,7 +110,7 @@
 
         <!-- spacer for Javascript drop-down menu -->
         <div class="menuen">
-            &nbsp;<a href="index_en.html" class="brownlink">Versi�n en espa�ol</a>
+            &nbsp;<a href="index_en.html" class="brownlink">English version</a>
         </div>
 
 
@@ -162,13 +119,13 @@
                 <td class="leftcolumn" id="blue" rowspan="100" width="25%">
 
 
-                    <!-- InstanceBeginEditable name="BarraIzquierda" --><h2>Cutter tables</h2>
+                    <!-- InstanceBeginEditable name="BarraIzquierda" --><h2>Librería Cutter</h2>
                     <p align="left">
-                        Get Cutter Sanborn number (Three-Figure Author Table, Swanson-Swift Revision).
-                    </p>
+                        Revisión de Swanson-Swift, 1969.</p>
+                    <p>
                     <p align="left">
-                        You can find the three figure Cutter-Sanborn tables <a
-                            href="tablascutter/cutterABC.html" class="whitelink">HERE</a>
+                        Acceda a la tabla de librería de Cutter-Sanborn de tres cifras haciendo click <a
+                            href="tablascutter/cutterABC.html" class="whitelink">AQUÍ</a>
                     </p>
                     <!-- Si va un menu con links, ponerlo dentro de sidemenu -->
                     <!-- <div class="sidemenu">    </div> -->
@@ -178,28 +135,31 @@
                     <!-- InstanceBeginEditable name="Contenido" -->
 
 
-                    <h2>Get three figure Cutter-Sanborn number</h2>
+                    <h2>Obtención automática del código Cutter-Sanborn<br/>
+                       </h2>
 
-                    <p>It works also with stresses, "�", "�", etc. <br/>
+                    <p>Ingrese el autor y obtenga el código Cutter-Sanborn correspondiente. Admite acentos (&quot;&acute;&quot;,
+                        &quot;`&quot;), diéresis (&quot;&uml;&quot;) y &quot;ñ&quot;. Si desea ingresar nombre y apellido,
+                        el formato es &quot;Apellido, Nombre&quot;.<br/>
                         <br/>
-                    </p>
+
 
 
                     <table>
                         <tr>
-                            <td>Text:</td>
+                            <td>Texto:</td>
                             <td>
                                 <form>
                                     <input type="text" name="cutText"/>
                                 </form>
                             </td>
                             <td>
-                                <button type="button" onclick="submitCut()">Submit</button>
+                                <button type="button" onclick="submitCut()">Enviar</button>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <span class="numero" id="numero_tit">Number: </span>
+                                <span class="numero" id="numero_tit">Número: </span>
                             </td>
                             <td>
                                 <span class="numero" style="font-weight: bold" id="numero_cut"></span>
@@ -213,7 +173,7 @@
         </table>
 
         <div class="footer">
-			If you have any questions or problems, please contact us at: <a href="mailto:contacto@numerocutter.com.ar">contacto@numerocutter.com.ar</a>
+            Por cualquier consulta o inconveniente comunicarse a: <a href="mailto:contacto@numerocutter.com.ar">contacto@numerocutter.com.ar</a>
             <!--<a href="http://www.numerocutter.com.ar/institucional/contacto.html">CONTACT</a>
             <a href=""> | </a>
             <a href="http://my.statcounter.com/project/standard/stats.php?project_id=2768112&amp;guest=1">See

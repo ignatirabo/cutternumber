@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <!-- InstanceBegin template="/Templates/cutteren.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -11,18 +11,18 @@
 
 	  gtag('config', 'G-H38ZKMSYQ9');
 	</script>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="shortcut icon" href= "favicon.ico"/>
     <!-- InstanceBeginEditable name="keywords" -->
     <meta name="Keywords"
-          content="cutter sanborn, table, tables, cutter number,MARC,biblioteca, library, cutter, sanborn, cutter-sanborn three figure author table"/>
+          content="cutter sanborn, table, tables, cutter number, MARC, biblioteca, library, cutter, sanborn, cutter-sanborn three figure author table"/>
     <!-- InstanceEndEditable -->
     <!-- InstanceBeginEditable name="description" -->
     <meta name="Description"
-          content="Site to get cutter number (Cutter-Sanborn three figure author table, Swanson-Swift Revision). C&oacute;rdoba (ARGENTINA). Tools to calculate Cutter-Sanborn numbers."/>
+          content="Site to get cutter number (Cutter-Sanborn three figure author table, Swanson-Swift Revision). Córdoba (ARGENTINA). Tools to calculate Cutter-Sanborn numbers."/>
     <!-- InstanceEndEditable -->
     <!-- InstanceBeginEditable name="Titulo" -->
-    <title>Cutter-Sanborn number</title>
+    <title>Cutter-Sanborn Number</title>
     <!-- InstanceEndEditable -->
 
     <!-- CSS for screen and print formatting -->
@@ -34,51 +34,8 @@
     <script type="text/JavaScript">
         function sacaAcentos(nombre) {
             // pre: ingresa un string
-            //post: devuelve la string sin acentos ni dieresis
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "C");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "A");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "E");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "I");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "O");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "U");
-            nombre = nombre.replace("�", "NZ");
-            return nombre;
+            // post: devuelve la string sin acentos ni dieresis
+            return nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         }
 
         var table;
@@ -153,7 +110,7 @@
 
         <!-- spacer for Javascript drop-down menu -->
         <div class="menuen">
-            &nbsp;<a href="index.html" class="brownlink">English version</a>
+            &nbsp;<a href="index.html" class="brownlink">Versión en español</a>
         </div>
 
 
@@ -162,7 +119,7 @@
                 <td class="leftcolumn" id="blue" rowspan="100" width="25%">
 
 
-                    <!-- InstanceBeginEditable name="BarraIzquierda" --><h2>Cutter tables</h2>
+                    <!-- InstanceBeginEditable name="BarraIzquierda" --><h2>Cutter Tables</h2>
                     <p align="left">
                         Get Cutter Sanborn number (Three-Figure Author Table, Swanson-Swift Revision).
                     </p>
@@ -178,9 +135,9 @@
                     <!-- InstanceBeginEditable name="Contenido" -->
 
 
-                    <h2>Get three figure Cutter-Sanborn number</h2>
+                    <h2>Get Three Figure Cutter-Sanborn Number</h2>
 
-                    <p>It works also with stresses, "�", "�", etc. <br/>
+                    <p>It works also with accents, "ñ", etc. <br/>
                         <br/>
                     </p>
 
@@ -213,7 +170,7 @@
         </table>
 
         <div class="footer">
-			If you have any questions or problems, please contact us at: <a href="mailto:contacto@numerocutter.com.ar">contacto@numerocutter.com.ar</a>
+            If you have any questions or problems, please contact us at: <a href="mailto:contacto@numerocutter.com.ar">contacto@numerocutter.com.ar</a>
             <!--<a href="http://www.numerocutter.com.ar/institucional/contacto.html">CONTACT</a>
             <a href=""> | </a>
             <a href="http://my.statcounter.com/project/standard/stats.php?project_id=2768112&amp;guest=1">See
