@@ -1,0 +1,115 @@
+/* --- menu styles ---
+
+/* top-level text */
+.m0l0iout {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+	padding: 4px;
+	color: #4F4F45;
+	text-align: center;
+}
+.m0l0iover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration : none;
+	padding: 4px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+/* top-level box */
+.m0l0oout {
+	text-decoration : none;
+	background: #F1EFE2;
+}
+.m0l0oover {
+	text-decoration : none;
+	background: #B27F54;
+}
+
+
+/* secondary-level text */
+.m0l1iout {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	text-decoration: none;
+	padding: 5px 2px 2px 2px;
+	color: #4F4F45;
+}
+.m0l1iover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	text-decoration : none;
+	padding: 5px 2px 2px 2px;
+	color: #FFFFFF;
+}
+
+/* secondary-level box */
+.m0l1oout {
+	text-decoration : none;
+	background: #F1EFE2;
+}
+.m0l1oover {
+	text-decoration : none;
+	background: #B27F54;
+}
+
+
+/* CURRENTLY NOT IN USE */
+/* third-level text */
+.m0l2iout {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	text-decoration : none;
+	padding: 5px 2px 2px 2px;
+	color: #4F4F45;
+}
+.m0l2iover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	text-decoration : none;
+	padding: 5px 2px 2px 2px;
+	color: #FFFFFF;
+}
+
+/* third-level box */
+.m0l2oout {
+	text-decoration : none;
+	background: #F1EFE2;
+}
+.m0l2oover {
+	text-decoration : none;
+	background: #B27F54;
+}
+
+@media print {
+.m0l0iout, .m0l0iover {
+	display: none;
+}
+
+/* level 0 outer */
+.m0l0oout, .m0l0oover {
+	display: none;
+}
+
+/* level 1 inner */
+.m0l1iout, .m0l1iover {
+	display: none;
+}
+
+/* level 1 outer */
+.m0l1oout, .m0l1oover {
+	display: none;
+}
+
+/* level 2 inner */
+.m0l2iout, .m0l2iover {
+	display: none;
+}
+
+/* level 2 outer */
+.m0l2oout, .m0l2oover {
+	display: none;
+}
+}
