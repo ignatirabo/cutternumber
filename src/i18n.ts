@@ -54,16 +54,16 @@ const strings: Record<string, Record<Lang, string>> = {
     en: "Enter the author",
   },
   step1Desc: {
-    es: "Escriba el nombre o apellido del autor que desea clasificar.",
-    en: "Type the name or surname of the author you want to classify.",
+    es: "Escriba el apellido y nombre del autor que desea clasificar.",
+    en: "Type the surname and name of the author you want to classify.",
   },
   step2Title: {
     es: "Obtenga el código",
     en: "Get the code",
   },
   step2Desc: {
-    es: "El sistema genera automáticamente el número de Cutter-Sanborn correspondiente.",
-    en: "The system automatically generates the corresponding Cutter-Sanborn number.",
+    es: "El sistema busca automáticamente el número de Cutter-Sanborn correspondiente.",
+    en: "The system automatically looks up the corresponding Cutter-Sanborn number.",
   },
   bannerText: {
     es: "Explore las tablas completas organizadas alfabéticamente",
@@ -77,9 +77,21 @@ const strings: Record<string, Record<Lang, string>> = {
     es: "Tablas de Cutter-Sanborn",
     en: "Cutter-Sanborn Tables",
   },
+  tableSubtitle: {
+    es: "Explore las tablas completas organizadas alfabéticamente.",
+    en: "Explore the complete tables organized alphabetically.",
+  },
+  tableCode: {
+    es: "Código",
+    en: "Code",
+  },
+  tableKey: {
+    es: "Clave",
+    en: "Key",
+  },
   tableBack: {
-    es: "← Volver al generador",
-    en: "← Back to generator",
+    es: "Volver al buscador",
+    en: "Back to search",
   },
   matchedEntry: {
     es: "Entrada coincidente:",

@@ -49,4 +49,13 @@ export function initUI(table: CutterEntry[]): void {
       });
     }
   }
+
+  // Nav home link — go back to generator
+  const navHome = document.getElementById("nav-home");
+  if (navHome) {
+    navHome.addEventListener("click", (e) => {
+      e.preventDefault();
+      (window as unknown as Record<string, () => void>).__hideTableBrowser?.();
+    });
+  }
 }
