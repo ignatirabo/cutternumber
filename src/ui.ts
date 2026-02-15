@@ -39,12 +39,14 @@ export function initUI(table: CutterEntry[]): void {
     resultBox.classList.remove("hidden");
   });
 
-  // Browse tables link
-  const browseLink = document.getElementById("browse-link");
-  if (browseLink) {
-    browseLink.addEventListener("click", (e) => {
-      e.preventDefault();
-      (window as unknown as Record<string, () => void>).__showTableBrowser();
-    });
+  // Browse tables links (nav link + banner)
+  for (const id of ["browse-link", "browse-banner"]) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        (window as unknown as Record<string, () => void>).__showTableBrowser();
+      });
+    }
   }
 }

@@ -9,9 +9,21 @@ const strings: Record<string, Record<Lang, string>> = {
     es: "Swanson-Swift Revision, 1969",
     en: "Swanson-Swift Revision, 1969",
   },
+  heroSubtitle: {
+    es: "Encuentre el código de clasificación bibliotecaria para cualquier autor de forma rápida y sencilla.",
+    en: "Find the library classification code for any author quickly and easily.",
+  },
+  navHome: {
+    es: "Inicio",
+    en: "Home",
+  },
+  navTables: {
+    es: "Tablas",
+    en: "Tables",
+  },
   inputLabel: {
-    es: "Ingrese el nombre del autor:",
-    en: "Enter the author's name:",
+    es: "Nombre del autor",
+    en: "Author name",
   },
   inputPlaceholder: {
     es: "Ej: García Márquez",
@@ -33,21 +45,33 @@ const strings: Record<string, Record<Lang, string>> = {
     es: "No se encontró un número para esta entrada.",
     en: "No match found for this input.",
   },
-  descTitle: {
-    es: "¿Qué es el número de Cutter-Sanborn?",
-    en: "What is a Cutter-Sanborn number?",
+  howItWorks: {
+    es: "Cómo funciona",
+    en: "How it works",
   },
-  descText: {
-    es: "El número de Cutter-Sanborn es un código alfanumérico utilizado en bibliotecas para clasificar obras por autor. Se basa en la tabla de tres dígitos de Cutter-Sanborn (revisión Swanson-Swift, 1969), que asigna un código numérico a cada apellido.",
-    en: "The Cutter-Sanborn number is an alphanumeric code used in libraries to classify works by author. It is based on the Cutter-Sanborn three-figure author table (Swanson-Swift revision, 1969), which assigns a numeric code to each surname.",
+  step1Title: {
+    es: "Ingrese el autor",
+    en: "Enter the author",
+  },
+  step1Desc: {
+    es: "Escriba el nombre o apellido del autor que desea clasificar.",
+    en: "Type the name or surname of the author you want to classify.",
+  },
+  step2Title: {
+    es: "Obtenga el código",
+    en: "Get the code",
+  },
+  step2Desc: {
+    es: "El sistema genera automáticamente el número de Cutter-Sanborn correspondiente.",
+    en: "The system automatically generates the corresponding Cutter-Sanborn number.",
+  },
+  bannerText: {
+    es: "Explore las tablas completas organizadas alfabéticamente",
+    en: "Explore the complete tables organized alphabetically",
   },
   browseTables: {
     es: "Consultar las tablas",
     en: "Browse tables",
-  },
-  browseTablesDesc: {
-    es: "Explore las tablas completas de Cutter-Sanborn organizadas alfabéticamente.",
-    en: "Explore the complete Cutter-Sanborn tables organized alphabetically.",
   },
   tableTitle: {
     es: "Tablas de Cutter-Sanborn",
@@ -60,14 +84,6 @@ const strings: Record<string, Record<Lang, string>> = {
   matchedEntry: {
     es: "Entrada coincidente:",
     en: "Matched entry:",
-  },
-  footerText: {
-    es: "Herramienta para calcular los números de tres dígitos de Cutter-Sanborn.",
-    en: "Tool for calculating Cutter-Sanborn three-figure author numbers.",
-  },
-  footerContact: {
-    es: "Contacto",
-    en: "Contact",
   },
   langSwitch: {
     es: "English",
@@ -142,8 +158,4 @@ export function applyTranslations(): void {
   });
 
   document.documentElement.lang = currentLang;
-
-  // Update lang switch button text
-  const switchBtn = document.getElementById("lang-switch");
-  if (switchBtn) switchBtn.textContent = t("langSwitch");
 }

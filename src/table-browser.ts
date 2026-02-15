@@ -23,20 +23,20 @@ export function initTableBrowser(
   const groups = groupByLetter(table);
 
   function render(activeLetter: string | null): void {
-    const backLink = `<a href="#" id="table-back" class="text-brown hover:underline text-sm">${t("tableBack")}</a>`;
-    const title = `<h2 class="text-2xl font-bold text-dark mb-4" data-i18n="tableTitle">${t("tableTitle")}</h2>`;
+    const backLink = `<a href="#" id="table-back" class="text-sage hover:underline text-sm">${t("tableBack")}</a>`;
+    const title = `<h2 class="font-heading text-2xl font-normal tracking-tight text-dark mb-4" data-i18n="tableTitle">${t("tableTitle")}</h2>`;
 
     // Letter bar
     const letterBar = LETTERS.map((l) => {
       const hasEntries = groups.has(l);
       const isActive = l === activeLetter;
       if (!hasEntries) {
-        return `<span class="px-2 py-1 text-gray/40 cursor-default">${l}</span>`;
+        return `<span class="px-2 py-1 text-soft/40 cursor-default">${l}</span>`;
       }
       return `<button data-letter="${l}" class="px-2 py-1 rounded font-medium transition-colors ${
         isActive
-          ? "bg-orange text-white"
-          : "text-brown hover:bg-beige"
+          ? "bg-sage text-white"
+          : "text-subtle hover:bg-cream"
       }">${l}</button>`;
     }).join("");
 
@@ -47,16 +47,16 @@ export function initTableBrowser(
       const rows = entries
         .map(
           (e) =>
-            `<tr class="border-b border-beige/60"><td class="py-1 px-3 font-mono text-sm">${e.code}</td><td class="py-1 px-3">${e.key}</td></tr>`
+            `<tr class="border-b border-border/60"><td class="py-1 px-3 font-mono text-sm">${e.code}</td><td class="py-1 px-3">${e.key}</td></tr>`
         )
         .join("");
       entriesHtml = `
-        <div class="mt-4 max-h-96 overflow-y-auto border border-beige rounded">
+        <div class="mt-4 max-h-96 overflow-y-auto border border-border rounded-xl">
           <table class="w-full">
-            <thead class="sticky top-0 bg-beige-light">
+            <thead class="sticky top-0 bg-sand">
               <tr>
-                <th class="py-2 px-3 text-left text-sm font-semibold text-gray w-24">Code</th>
-                <th class="py-2 px-3 text-left text-sm font-semibold text-gray">Key</th>
+                <th class="py-2 px-3 text-left text-sm font-semibold text-muted w-24">Code</th>
+                <th class="py-2 px-3 text-left text-sm font-semibold text-muted">Key</th>
               </tr>
             </thead>
             <tbody>${rows}</tbody>
