@@ -1,210 +1,139 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
-<!-- InstanceBegin template="/Templates/cutteren.dwt" codeOutsideHTMLIsLocked="false" -->
+<html lang="es">
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-H38ZKMSYQ9"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-H38ZKMSYQ9');
-	</script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="shortcut icon" href= "favicon.ico"/>
-    <!-- InstanceBeginEditable name="keywords" -->
-    <meta name="Keywords"
-          content="cutter sanborn, table, tabla, tablas, tables, cutter number, MARC, biblioteca, library, cutter, sanborn, cutter-sanborn three figure author table"/>
-    <!-- InstanceEndEditable -->
-    <!-- InstanceBeginEditable name="description" -->
-    <meta name="Description"
-          content="Sitio para obtener el número Cutter Sanborn (Cutter-Sanborn three figure author table, Swanson-Swift Revision). Córdoba (ARGENTINA). Herramientas para calcular los números de tres dígitos de Cutter-Sanborn."/>
-    <!-- InstanceEndEditable -->
-    <!-- InstanceBeginEditable name="Titulo" -->
-    <title>Número de Cutter-Sanborn</title>
-    <!-- InstanceEndEditable -->
-
-    <!-- CSS for screen and print formatting -->
-    <link rel="stylesheet" href="main.css"/>
-    <!-- CSS for menu formatting -->
-    <link rel="stylesheet" href="menu.css"/>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/JavaScript">
-        function sacaAcentos(nombre) {
-            // pre: ingresa un string
-            // post: devuelve la string sin acentos ni dieresis
-            return nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        }
-
-        var table;
-
-        $(document).ready(function () {
-            $(" .numero").hide();
-
-            $.ajax({
-                url: "tablacutter-js.txt",
-                success: function (result) {
-                    table = result;
-                }
-            });
-
-            $("form").submit(function () {
-                submitCut();
-                return false;
-            });
-        });
-
-        function submitCut() {
-            cutter = cutterFunc();
-            $("#numero_tit").show();
-            $("#numero_cut").text(cutter).show();
-        }
-
-        function cutterFunc() {
-            var inputtxt = $('input[name="cutText"]').val();
-            var original = inputtxt;
-            tblc = table.split("\n");
-            cutter = ''; //  devuelve el valor de la tabla cutter que corresponde al input
-
-            inputtxt = sacaAcentos(inputtxt);
-            inputtxt = inputtxt.replace(" ", "");
-            inputtxt = inputtxt.trim();
-            inputtxt = inputtxt.toLowerCase();
-            for (j = 0; j < (tblc.length - 1); j++) {
-                if (inputtxt >= tblc[j].slice(4) && inputtxt < tblc[j + 1].slice(4)) {
-                    if (inputtxt[0] == 'a' || inputtxt[0] == 'e' || inputtxt[0] == 'i' || inputtxt[0] == 'o' || inputtxt[0] == 'u') {
-                        cutter = inputtxt.slice(0, 2).toUpperCase() + tblc[j].slice(0, 3);
-                    } else if (inputtxt[0] == 's' && inputtxt[1] != 'c') {
-                        cutter = inputtxt.slice(0, 2).toUpperCase() + tblc[j].slice(0, 3);
-                    } else if (inputtxt[0] == 's' && inputtxt[1] == 'c') {
-                        cutter = inputtxt.slice(0, 3).toUpperCase() + tblc[j].slice(0, 3);
-                    } else {
-                        cutter = inputtxt[0].toUpperCase() + tblc[j].slice(0, 3);
-                    }
-                    cutter = cutter.replace("0", "");
-                    cutter = cutter.replace("0", "");
-                    break;
-                }
-            }
-            return cutter;
-        }
-    </script>
-
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Generador de números Cutter-Sanborn para clasificación bibliotecaria. Cutter-Sanborn three-figure author table (Swanson-Swift Revision, 1969)." />
+  <meta name="keywords" content="cutter sanborn, tabla, tables, cutter number, biblioteca, library, cutter-sanborn three figure author table, MARC" />
+  <title>Número de Cutter-Sanborn</title>
+  <link rel="shortcut icon" href="/favicon.ico" />
 </head>
-
-<body>
-<div style="text-align:center;">
-    <div class="container">
-
-        <!-- image header -->
-        <div class="header">
-            <a href= "index.html"><img src= "images/spacer.gif" alt="Cutter number" width="518" height="60" border="0"
-                                         style="float:left;"/></a>
-        </div>
-
-        <!-- image header for print -->
-        <img src= "images/header.jpg" class="printhead" alt="-"/>
-
-        <!-- spacer for Javascript drop-down menu -->
-        <div class="menuen">
-            &nbsp;<a href="index_en.html" class="brownlink">English version</a>
-        </div>
-
-
-        <table class="tablesquares" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" width="90%">
-            <tr>
-                <td class="leftcolumn" id="blue" rowspan="100" width="25%">
-
-
-                    <!-- InstanceBeginEditable name="BarraIzquierda" --><h2>Librería Cutter</h2>
-                    <p align="left">
-                        Revisión de Swanson-Swift, 1969.</p>
-                    <p>
-                    <p align="left">
-                        Acceda a la tabla de librería de Cutter-Sanborn de tres cifras haciendo click <a
-                            href="tablascutter/cutterABC.html" class="whitelink">AQUÍ</a>
-                    </p>
-                    <!-- Si va un menu con links, ponerlo dentro de sidemenu -->
-                    <!-- <div class="sidemenu">    </div> -->
-                    <!-- InstanceEndEditable --></td>
-
-                <td class="rightcolumn" id="white" width="75%">
-                    <!-- InstanceBeginEditable name="Contenido" -->
-
-
-                    <h2>Obtención automática del código Cutter-Sanborn<br/>
-                       </h2>
-
-                    <p>Ingrese el autor y obtenga el código Cutter-Sanborn correspondiente. Admite acentos (&quot;&acute;&quot;,
-                        &quot;`&quot;), diéresis (&quot;&uml;&quot;) y &quot;ñ&quot;. Si desea ingresar nombre y apellido,
-                        el formato es &quot;Apellido, Nombre&quot;.<br/>
-                        <br/>
-
-
-
-                    <table>
-                        <tr>
-                            <td>Texto:</td>
-                            <td>
-                                <form>
-                                    <input type="text" name="cutText"/>
-                                </form>
-                            </td>
-                            <td>
-                                <button type="button" onclick="submitCut()">Enviar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="numero" id="numero_tit">Número: </span>
-                            </td>
-                            <td>
-                                <span class="numero" style="font-weight: bold" id="numero_cut"></span>
-                            </td>
-                        </tr>
-                    </table>
-
-
-                    <!-- InstanceEndEditable --></td>
-            </tr>
-        </table>
-
-        <div class="footer">
-            Por cualquier consulta o inconveniente comunicarse a: <a href="mailto:contacto@numerocutter.com.ar">contacto@numerocutter.com.ar</a>
-            <!--<a href="http://www.numerocutter.com.ar/institucional/contacto.html">CONTACT</a>
-            <a href=""> | </a>
-            <a href="http://my.statcounter.com/project/standard/stats.php?project_id=2768112&amp;guest=1">See
-                statistics</a>-->
-
-            <!-- Start of StatCounter Code -->
-            <!--<script type="text/javascript">
-                var sc_project = 2768112;
-                var sc_invisible = 0;
-                var sc_partition = 28;
-                var sc_security = "36a42d55";
-            </script>-->
-
-            <!--<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script>
-            <noscript>
-                <div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img
-                        class="statcounter" src="http://c29.statcounter.com/2768112/0/36a42d55/0/" alt="blog counter"/></a>
-                </div>
-            </noscript>-->
-            <!-- End of StatCounter Code --><br>
-
-            &copy; 2022 ALT
-        </div>
-
+<body class="bg-sand font-sans text-dark min-h-screen flex flex-col">
+  <!-- Nav -->
+  <nav class="flex items-center justify-between px-12 py-4.5 border-b border-border">
+    <div class="flex items-center gap-2.5">
+      <div class="w-8 h-8 bg-sage rounded-lg flex items-center justify-center">
+        <span class="font-heading text-white text-base font-medium">C</span>
+      </div>
+      <span class="font-heading text-dark text-xl tracking-tight">Cutter-Sanborn</span>
     </div>
-</div>
-<br/>
-<br/>
-<br/>
+    <div class="flex items-center gap-7">
+      <a href="#" id="nav-home" class="text-sm font-medium text-dark hover:text-dark transition-colors" data-i18n="navHome">Inicio</a>
+      <a href="#" id="browse-link" class="text-sm text-muted hover:text-dark transition-colors" data-i18n="navTables">Tablas</a>
+      <button id="lang-switch" class="bg-sage hover:bg-sage-hover text-white text-xs font-medium px-4 py-2 rounded-full flex items-center gap-1.5 transition-colors">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span data-i18n="langSwitch">English</span>
+      </button>
+    </div>
+  </nav>
 
+  <!-- Main content -->
+  <main class="flex-1">
+    <!-- Generator view -->
+    <div id="main-view">
+      <!-- Hero section -->
+      <section class="flex flex-col items-center px-12 py-16 gap-8">
+        <div class="text-center max-w-xl">
+          <h1 class="font-heading text-[44px] font-normal tracking-tight text-dark" data-i18n="siteTitle">
+            Número de Cutter-Sanborn
+          </h1>
+          <p class="text-muted text-[15px] leading-relaxed mt-4" data-i18n="heroSubtitle">
+            Encuentre el código de clasificación bibliotecaria
+            para cualquier autor de forma rápida y sencilla.
+          </p>
+        </div>
 
+        <!-- Search card -->
+        <div class="w-full max-w-md bg-white rounded-2xl border border-border p-7 space-y-4 shadow-sm">
+          <form id="cutter-form" class="space-y-4">
+            <label for="author-input" class="block text-[13px] font-medium text-muted" data-i18n="inputLabel">
+              Nombre del autor
+            </label>
+            <input
+              type="text"
+              id="author-input"
+              data-i18n-placeholder="inputPlaceholder"
+              placeholder="Ej: García Márquez"
+              autocomplete="off"
+              class="w-full h-12 px-5 bg-sand border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sage/40 focus:border-sage placeholder:text-soft"
+            />
+            <button type="submit" class="w-full h-12 bg-sage hover:bg-sage-hover text-white text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <span data-i18n="submitButton">Obtener número</span>
+            </button>
+          </form>
 
+          <!-- Result -->
+          <div id="result-box" class="hidden pt-4 border-t border-border">
+            <p class="text-xs text-muted mb-1" data-i18n="resultLabel">Número de Cutter:</p>
+            <p id="result-number" class="text-4xl font-bold text-sage font-mono"></p>
+            <p id="result-entry" class="text-xs text-muted mt-1"></p>
+          </div>
+
+          <!-- Error -->
+          <div id="error-box" class="hidden p-4 bg-red-50 text-red-700 rounded-xl border border-red-200 text-sm"></div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="px-12 py-10 space-y-6">
+        <h2 class="font-heading text-2xl font-normal tracking-tight text-dark" data-i18n="howItWorks">Cómo funciona</h2>
+        <div class="grid md:grid-cols-2 gap-5">
+          <!-- Card 1 -->
+          <div class="bg-white rounded-2xl border border-border p-5 flex items-start gap-3">
+            <div class="w-11 h-11 bg-cream rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-[18px] h-[18px] text-sage" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-dark" data-i18n="step1Title">Ingrese el autor</p>
+              <p class="text-[13px] text-muted leading-relaxed mt-1" data-i18n="step1Desc">Escriba el apellido y nombre del autor que desea clasificar.</p>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="bg-white rounded-2xl border border-border p-5 flex items-start gap-3">
+            <div class="w-11 h-11 bg-cream rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-[18px] h-[18px] text-sage" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 9V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="10" y1="3" y2="21"/></svg>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-dark" data-i18n="step2Title">Obtenga el código</p>
+              <p class="text-[13px] text-muted leading-relaxed mt-1" data-i18n="step2Desc">El sistema busca automáticamente el número de Cutter-Sanborn correspondiente.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Browse tables banner -->
+      <section class="px-12 py-4">
+        <a href="#" id="browse-banner" class="flex items-center justify-between bg-banner rounded-2xl px-5 py-4 group transition-colors hover:bg-border">
+          <div class="flex items-center gap-3">
+            <svg class="w-4 h-4 text-sage" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M3 12h18"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+            <span class="text-[13px] text-subtle" data-i18n="bannerText">Explore las tablas completas organizadas alfabéticamente</span>
+          </div>
+          <svg class="w-4 h-4 text-muted group-hover:text-dark transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </section>
+    </div>
+
+    <!-- Table browser view (hidden by default) -->
+    <div id="table-view" class="hidden px-12 py-10"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="flex items-center justify-between px-12 py-6 border-t border-border">
+    <div class="flex flex-col gap-1">
+      <span class="text-xs text-soft" data-i18n="siteSubtitle">Swanson-Swift Revision, 1969</span>
+      <a href="mailto:contacto@numerocutter.com.ar" class="text-xs text-soft hover:text-dark transition-colors">contacto@numerocutter.com.ar</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="https://github.com/ignatirabo/cutternumber" target="_blank" rel="noopener noreferrer" class="text-soft hover:text-dark transition-colors">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <div class="w-5 h-5 bg-sage rounded flex items-center justify-center">
+        <span class="font-heading text-white text-[10px] font-medium">C</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.ts"></script>
 </body>
-<!-- InstanceEnd --></html>
+</html>
